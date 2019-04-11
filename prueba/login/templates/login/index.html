@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login social</title>
+</head>
+
+<body>
+    <h1>Login Social</h1>
+
+    {% if user.is_authenticated %}
+    <h2>Bienvenido {{ user.username }} | {{ user.first_name }} | {{ user.last_name }}</h2>
+    <a href="{% url 'logout'%}">Salir</a>
+    {% else %}
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+    {% endif %}
+
+</body>
+
+</html>
